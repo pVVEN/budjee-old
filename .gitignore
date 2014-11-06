@@ -11,6 +11,7 @@
 # Android/gen/
 # Android/assets/
 platforms/
+node_modules/
 # generated files
 bin/
 gen/
