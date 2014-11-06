@@ -7,9 +7,10 @@
 # Java class files
 *.class
 # generated files - android project subfolder
-Android/bin/
-Android/gen/
-Android/assets/
+# Android/bin/
+# Android/gen/
+# Android/assets/
+platforms/
 # generated files
 bin/
 gen/
