@@ -17,6 +17,13 @@
     specific language governing permissions and limitations
     under the License.
 -->
+<!--
+    File key:
+    p_ = partial
+    app_ = app
+    c_ = controller
+    m_ = module
+-->
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -31,22 +38,48 @@
         <title>Budjee</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready. Welcome to Budjee!</p>
+        <div id="deviceready">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received"><!--Device is Ready--></p>
+
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Brand</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#/home" class="btn">Home</a></li>
+                            <li><a href="#/calendar" class="btn">Calendar</a></li>
+                            <li><a href="#/transactions" class="btn">Transactions</a></li>
+                            <li><a href="#/about" class="btn">About</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+
+            <div id="container">
+                <p>This is the main page. Everything below this line is from a partial.</p>
+                <div ng-view></div>
             </div>
-            <p>Here's a bunch of stuff.</p>
-            <p>Here's a bunch of other stuff.</p>
         </div>
 
         <!--DO NOT PUT HTML BELOW THIS LINE-->
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/angular.min.js"></script>
+        <script type="text/javascript" src="js/angular-route.min.js"></script>
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/budjee.js"></script>
     </body>
 </html>

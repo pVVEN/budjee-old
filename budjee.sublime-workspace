@@ -3,23 +3,27 @@
 	{
 		"selected_items":
 		[
+			[
+				"angu",
+				"angularTestApp"
+			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "www/angular.html",
+			"file": "www/index.html",
 			"settings":
 			{
-				"buffer_size": 2498,
-				"line_ending": "Windows"
+				"buffer_size": 3192,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "www/js/main.js",
+			"file": "www/js/budjee.js",
 			"settings":
 			{
-				"buffer_size": 399,
+				"buffer_size": 1361,
 				"line_ending": "Windows"
 			}
 		}
@@ -48,12 +52,19 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Owen/Projects/budjee/www/js/main.js",
+		"/C/Users/Owen/Projects/budjee/www/partials/p_calendar",
+		"/C/Users/Owen/Projects/budjee/www/partials/p_transactions.html",
+		"/C/Users/Owen/Projects/budjee/www/partials/home.html",
+		"/C/Users/Owen/Projects/budjee/www/partials/about.html",
+		"/C/Users/Owen/Projects/budjee/www/angular.html",
+		"/C/Users/Owen/Projects/budjee/www/angular2.html",
+		"/C/Users/Owen/Projects/budjee/www/js/angularNameTest.js",
+		"/C/Users/Owen/Projects/budjee/www/js/angularNameTest",
 		"/C/Users/Owen/Projects/budjee/.gitignore",
 		"/C/Users/Owen/Projects/budjee/www/index.html",
-		"/C/Users/Owen/Projects/budjee/www/angular.html",
 		"/C/Users/Owen/Projects/budjee/www/js/server.js",
 		"/C/Users/Owen/Projects/budjee/www/css/main.less",
-		"/C/Users/Owen/Projects/budjee/www/js/main.js",
 		"/C/Users/Owen/Projects/Budgie/css/main.less",
 		"/C/Users/Owen/Projects/Budgie/js/main.js",
 		"/C/Users/Owen/Documents/Websites/srtuckerqh/training.html",
@@ -97,23 +108,23 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "www/angular.html",
+					"file": "www/index.html",
 					"settings":
 					{
-						"buffer_size": 2498,
+						"buffer_size": 3192,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1988,
-								1988
+								2544,
+								2544
 							]
 						],
 						"settings":
@@ -123,25 +134,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 263.0,
+						"translation.y": 503.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "www/js/main.js",
+					"file": "www/js/budjee.js",
 					"settings":
 					{
-						"buffer_size": 399,
+						"buffer_size": 1361,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								47,
-								47
+								1215,
+								1215
 							]
 						],
 						"settings":
@@ -150,7 +161,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 114.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -164,7 +175,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 31.0
 	},
 	"layout":
 	{
