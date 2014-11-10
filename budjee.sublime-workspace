@@ -15,7 +15,7 @@
 			"file": "www/index.html",
 			"settings":
 			{
-				"buffer_size": 3192,
+				"buffer_size": 4214,
 				"line_ending": "Unix"
 			}
 		},
@@ -23,7 +23,15 @@
 			"file": "www/js/budjee.js",
 			"settings":
 			{
-				"buffer_size": 1361,
+				"buffer_size": 1367,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "www/partials/p_about.html",
+			"settings":
+			{
+				"buffer_size": 150,
 				"line_ending": "Windows"
 			}
 		}
@@ -116,15 +124,15 @@
 					"file": "www/index.html",
 					"settings":
 					{
-						"buffer_size": 3192,
+						"buffer_size": 4214,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2544,
-								2544
+								3570,
+								3570
 							]
 						],
 						"settings":
@@ -134,7 +142,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 503.0,
+						"translation.y": 569.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -144,15 +152,15 @@
 					"file": "www/js/budjee.js",
 					"settings":
 					{
-						"buffer_size": 1361,
+						"buffer_size": 1367,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1215,
-								1215
+								154,
+								154
 							]
 						],
 						"settings":
@@ -161,7 +169,33 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 114.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "www/partials/p_about.html",
+					"settings":
+					{
+						"buffer_size": 150,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
