@@ -24,23 +24,18 @@ angular.module('app_Budjee', ['ngRoute'])
 		$scope.title = "Home Page";
 		$scope.body = "This is the home body.";
 
-
+		$scope.amtAvailable = "$100.00";
+		$scope.amtAvailableColor = "color-green";
 	})
 	.controller('c_About', function($scope){
 		$scope.title = "About Page";
 		$scope.body = "This is the about body.";
-
-		
 	})
 	.controller('c_Calendar', function($scope){
 		$scope.title = "Calendar Page";
 		$scope.body = "This is the calendar body.";
-
-		
 	})
 	.controller('c_Transactions', function($scope){
 		$scope.title = "Transactions Page";
 		$scope.body = "This is the transactions body.";
-
-		
 	});

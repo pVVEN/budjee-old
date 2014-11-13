@@ -67,8 +67,7 @@
                 </div><!-- /.container-fluid -->
             </nav>
 
-            <div id="container" ng-controller="c_Main">
-                <p>Hello {{greetMe}}!</p>
+            <div id="container">
                 <p>This is the main page. Everything below this line is from a partial.</p>
                 <div ng-view></div>
             </div>
@@ -82,10 +81,5 @@
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/budjee.js"></script>
-        <script type="text/javascript">
-            /*COMMENT OUT CORDOVA AND USE THIS FOR BROWSER TESTING*/
-            var domElement = document.getElementById("deviceready");
-            angular.bootstrap(domElement, ["app_Budjee"]);
-        </script>
     </body>
 </html>
