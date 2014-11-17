@@ -26,6 +26,22 @@ angular.module('app_Budjee', ['ngRoute'])
 
 		$scope.amtAvailable = "$100.00";
 		$scope.amtAvailableColor = "color-green";
+
+		$scope.scheduledPayment = {
+			date: "12/31/2014",
+			time: "14:34",
+			amount: "1234.56",
+			desc: "Last mortgage payment for the year.",
+			addOrSub: "sub"
+		};
+		var amtNextAvailable = $scope.amtAvailable - $scope.scheduledPayment.amount;
+		$scope.amtNextAvailableColor = "";
+		if(amtNextAvailable > 0)
+		{
+			$scope.amtNextAvailableColor = "color-green";
+		}else{
+			$scope.amtNextAvailableColor = "color-red";
+		}
 	})
 	.controller('c_About', function($scope){
 		$scope.title = "About Page";

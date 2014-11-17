@@ -1,10 +1,4 @@
 <h1>{{title}}</h1>
-<p>This is the home page. It will contain the following:</p>
-<ul>
-	<li>Current amount available</li>
-	<li>Next upcoming payment</li>
-	<li>"Quick add" section for recent payment or deposit</li>
-</ul>
 <div class="row">
 	<div class="col-md-6">
 		<div class="panel panel-default">
@@ -12,7 +6,7 @@
 				<h3 class="panel-title">Amount Available</h3>
 			</div>
 			<div class="panel-body">
-				<span class="{{amtAvailableColor}}">{{amtAvailable}}</span>
+				<h4><span class="{{amtAvailableColor}}">{{amtAvailable}}</span></h4>
 			</div>
 		</div>
 	</div>
@@ -22,7 +16,15 @@
 				<h3 class="panel-title">Next Payment</h3>
 			</div>
 			<div class="panel-body">
-				Panel content
+				<div class="row">
+					<div class="col-md-6 col-sm-6">
+						<p>{{scheduledPayment.date}} - {{scheduledPayment.time}}</p>
+						<p>{{scheduledPayment.desc}}</p>
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<h4 class="{{amtNextAvailableColor}}">${{scheduledPayment.amount}}</h4>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
