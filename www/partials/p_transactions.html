@@ -1,3 +1,4 @@
+
 <h1>{{title}}</h1>
 <p>This is the transactions page. It will contain the following:</p>
 <ul>
@@ -8,3 +9,23 @@
 	<li>Set if it's recurring or not, and how often</li>
 	<li>Text field for the amount</li>
 </ul>
+
+
+
+
+<div class="row" ng-repeat="transaction in transactions">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">{{transaction.title}}</h3>
+				<button class="btn btn-danger pull-right"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+			</div>
+			<div class="panel-body">
+				<p>{{transaction.date}} - {{transaction.time}}</p>
+				<p>${{transaction.amount}}</p>
+				<p>{{transaction.type}}</p>
+				<p>{{transaction.desc}}</p>
+			</div>
+		</div>
+	</div>
+</div>
