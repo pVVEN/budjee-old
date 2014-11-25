@@ -33,7 +33,10 @@ textbox "for [] times (leave as 0 if infinite)"
 
 *******/
 
-angular.module('app_Budjee', ['ngRoute', 'ngStorage'])
+angular.module('app_Budjee', 
+	['ngRoute', 
+	'ngTouch',
+	'ngStorage'])
 	.config(function($routeProvider){
 		$routeProvider
 			.when('/about', {templateUrl: 'partials/p_about.html', controller: 'c_About'})
@@ -141,13 +144,7 @@ angular.module('app_Budjee', ['ngRoute', 'ngStorage'])
 			$scope.amtNextAvailableColor = "color-red";
 		}
 
-		/*$scope.form.title = "";
-		$scope.form.date = "";
-		$scope.form.time = "";
-		$scope.form.amount = "";
-		$scope.form.type = "";
-		$scope.form.desc = "";*/
-		$scope.form = {
+		$scope.formData = {
 			title: "",
 			date: "",
 			time: "",
@@ -158,44 +155,44 @@ angular.module('app_Budjee', ['ngRoute', 'ngStorage'])
 		$scope.submit = function(){
 			if($scope.quTitle != "")
 			{
-				$scope.form.title = $scope.quTitle;
+				$scope.formData.title = $scope.quTitle;
 			}
 
 			if($scope.quDate == "today")
 			{
-				$scope.form.date = "01/01/2015";
+				$scope.formData.date = "01/01/2015";
 			}else{
 				if($scope.quDateSpecifiedText != "")
 				{
-					$scope.form.date = $scope.quDateSpecifiedText;
+					$scope.formData.date = $scope.quDateSpecifiedText;
 				}
 			}
 
 			if($scope.quTime == "now")
 			{
-				$scope.form.time = "11:59";
+				$scope.formData.time = "11:59";
 			}else{
 				if($scope.quTimeSpecifiedText != "")
 				{
-					$scope.form.time = $scope.quTimeSpecifiedText;
+					$scope.formData.time = $scope.quTimeSpecifiedText;
 				}
 			}
 
 			if($scope.quAmount != "")
 			{
-				$scope.form.amount = $scope.quAmount;
+				$scope.formData.amount = $scope.quAmount;
 			}
 
 			if($scope.quType == "d")
 			{
-				$scope.form.type = "+";
+				$scope.formData.type = "+";
 			}else if($scope.quType == "w"){
-				$scope.form.type = "-";
+				$scope.formData.type = "-";
 			}
 
 			if($scope.quDesc != "")
 			{
-				$scope.form.desc = $scope.quDesc;
+				$scope.formData.desc = $scope.quDesc;
 			}
 		}
 	})

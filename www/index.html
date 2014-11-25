@@ -23,6 +23,11 @@
     app_ = app
     c_ = controller
     m_ = module
+
+
+
+
+    http://stackoverflow.com/questions/12472244/how-to-integrate-angularui-to-angularjs
 -->
 <html lang="en">
     <head>
@@ -44,12 +49,10 @@
 
             <nav class="navbar navbar-default" role="navigation">
                 <div class="container-fluid">
-                    <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                         <a class="navbar-brand" href="#">Budjee</a>
                     </div>
 
-                    <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="hidden-xs hidden-sm">
                         <ul class="nav navbar-nav">
                             <li ng-class="{active: isActive('/home')}"><a href="#/home" class="btn">Home</a></li>
@@ -62,12 +65,36 @@
                     </div>
                     <div class="hidden-md hidden-lg">
                         <ul class="nav nav-justified">
-                            <li ng-class="{active: isActive('/home')}"><a href="#/home" class="btn btn-lg"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-                            <li ng-class="{active: isActive('/calendar')}"><a href="#/calendar" class="btn btn-lg"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></a></li>
-                            <li ng-class="{active: isActive('/transactions')}"><a href="#/transactions" class="btn btn-lg"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span></a></li>
-                            <li ng-class="{active: isActive('/about')}"><a href="#/about" class="btn btn-lg"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></li>
-                            <li ng-class="{active: isActive('/settings')}"><a href="#/settings" class="btn btn-lg"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
-                            <li><a href="#" class="btn btn-lg"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a></li>
+                            <li ng-class="{active: isActive('/home')}">
+                                <a href="#/home" class="btn btn-lg">
+                                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li ng-class="{active: isActive('/calendar')}">
+                                <a href="#/calendar" class="btn btn-lg">
+                                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li ng-class="{active: isActive('/transactions')}">
+                                <a href="#/transactions" class="btn btn-lg">
+                                    <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li ng-class="{active: isActive('/about')}">
+                                <a href="#/about" class="btn btn-lg">
+                                    <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li ng-class="{active: isActive('/settings')}">
+                                <a href="#/settings" class="btn btn-lg">
+                                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn btn-lg">
+                                    <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -82,10 +109,11 @@
 
         <!--DO NOT PUT HTML BELOW THIS LINE-->
         <!--<script type="text/javascript" src="cordova.js"></script>-->
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/angular.min.js"></script>
         <script type="text/javascript" src="js/angular-route.min.js"></script>
+        <script type="text/javascript" src="js/angular-touch.min.js"></script>
         <script type="text/javascript" src="js/ngStorage.min.js"></script>
-        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/budjee.js"></script>
