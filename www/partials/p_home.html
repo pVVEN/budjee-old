@@ -40,16 +40,16 @@
 				<form role="form" ng-submit="submit()">
 					<div class="form-group">
 						<label for="quTitle">Title</label>
-						<input type="text" class="form-control" placeholder="Enter a title" ng-model="quTitle" />
+						<input type="text" class="form-control" placeholder="Enter a title" ng-required="true" ng-model="quTitle" />
 					</div>
 					<div class="form-group">
 						<label for="quAmount">Amount</label>
-						<input type="text" class="form-control" placeholder="Enter the amount" ng-model="quAmount" />
+						<input type="text" class="form-control" placeholder="Enter the amount" ng-required="true" ng-model="quAmount" />
 					</div>
 					<div class="form-group">
 						<label>Type</label><br />
 						<label class="radio-inline">
-							<input type="radio" name="quType" value="w" ng-model="quType" checked />
+							<input type="radio" name="quType" value="w" ng-model="quType" />
 							Withdrawal
 						</label>
 						<label class="radio-inline">
@@ -59,35 +59,12 @@
 					</div>
 					<div class="form-group">
 						<label>Date</label><br />
-						<label class="radio-inline">
-							<input type="radio" name="quDates" value="today" ng-model="quDate" checked />
-							Today
-						</label>
-						<label class="radio-inline">
-							<input type="radio" name="quDates" value="date" ng-model="quDate" />
-							Specific Date
-						</label>
-							<input type="text" placeholder="Select Date" pick-a-date="date" ng-model="quDateSpecifiedText" /> {{ date }}
-						<div ng-hide="!(quDate == 'date')">
-							<!-- <input type="text" placeholder="01/01/2015" ng-model="quDateSpecifiedText">  -->
-							<a href="#" class="btn btn-lg"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></a>
-						</div>
+						<datepicker ng-model="quDatePicker" datepicker-options="dateOptions" show-weeks="false" show-button-bar="false" class="well well-sm"></datepicker>
 					</div>
 					<div class="form-group">
 						<label>Time</label><br />
-						<label class="radio-inline">
-							<input type="radio" name="quTime" value="now" ng-model="quTime" checked />
-							Now
-						</label>
-						<label class="radio-inline">
-							<input type="radio" name="quTime" value="time" ng-model="quTime" />
-							Specific Time
-						</label>
-							<input type="text" placeholder="Select Time" pick-a-time="time" ng-model="quTimeSpecifiedText" /> {{ time }}
-						<div ng-hide="!(quTime == 'time')">
-							<!-- <input type="text" placeholder="13:00" ng-model="quTimeSpecifiedText">  -->
-							<a href="#" class="btn btn-lg"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></a>
-						</div>
+						<timepicker ng-model="quTimePicker" minute-step="15" show-meridian="false" readonly-input="true"></timepicker>
+						<button class="btn btn-info" ng-click="setNow()">Now</button>
 					</div>
 					<div class="form-group">
 						<label>Description</label><br />
@@ -101,18 +78,6 @@
 				</form>
 			</div>
 		</div>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-12">
-		<pre>
-			<p>Title: {{formData.title}}</p>
-			<p>Amount: {{formData.amount}}</p>
-			<p>Type: {{formData.type}}</p>
-			<p>Date: {{formData.date}}</p>
-			<p>Time: {{formData.time}}</p>
-			<p>Description:<br />{{formData.desc}}</p>
-			<p>{{formData}}</p>
-		</pre>
+		<pre>{{formData.dateTime}}</pre>
 	</div>
 </div>

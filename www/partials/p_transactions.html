@@ -12,8 +12,20 @@
 
 
 
-
-<div class="row" ng-repeat="transaction in transactions">
+<div>
+	<div class="form-group">
+		<label>Sort</label><br />
+		<label class="radio-inline">
+			<input type="radio" name="sort" value="a" ng-click="sortAscending()" />
+			Ascending
+		</label>
+		<label class="radio-inline">
+			<input type="radio" name="sort" value="d" ng-click="sortDescending()" />
+			Descending
+		</label>
+	</div>
+</div>
+<div class="row" ng-repeat="transaction in tempTransactions">
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -21,7 +33,7 @@
 				<button class="btn btn-danger pull-right"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
 			</div>
 			<div class="panel-body">
-				<p>{{transaction.date}} - {{transaction.time}}</p>
+				<p>{{transaction.dateTime}}</p>
 				<p>${{transaction.amount}}</p>
 				<p>{{transaction.type}}</p>
 				<p>{{transaction.desc}}</p>

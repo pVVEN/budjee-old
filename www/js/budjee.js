@@ -36,7 +36,8 @@ textbox "for [] times (leave as 0 if infinite)"
 angular.module('app_Budjee', 
 	['ngRoute', 
 	'ngTouch',
-	'ngStorage'])
+	'ngStorage',
+	'ui.bootstrap'])
 	.config(function($routeProvider){
 		$routeProvider
 			.when('/about', {templateUrl: 'partials/p_about.html', controller: 'c_About'})
@@ -69,40 +70,35 @@ angular.module('app_Budjee',
 	    $scope.transactionsService.transactions = [
 			{
 				title: "Rent",
-				date: "01/14/2015",
-				time: "7:00",
+				dateTime: "2014-01-26T13:00:00.312Z",
 				amount: "754.31",
 				type: "-",
 				desc: "Rent for the month"
 			},
 			{
 				title: "Car insurance",
-				date: "01/12/2015",
-				time: "9:12",
+				dateTime: "2014-01-26T15:00:00.312Z",
 				amount: "120.21",
 				type: "-",
 				desc: "Monthly car insurance payment"
 			},
 			{
 				title: "Car payment",
-				date: "01/11/2015",
-				time: "8:00",
+				dateTime: "2014-01-26T08:03:00.312Z",
 				amount: "169.51",
 				type: "-",
 				desc: "First half of payment"
 			},
 			{
 				title: "Paycheck",
-				date: "01/03/2015",
-				time: "23:59",
+				dateTime: "2014-01-26T08:13:00.312Z",
 				amount: "1234.56",
 				type: "+",
 				desc: "Pay day!!"
 			},
 			{
 				title: "Phone bill",
-				date: "01/01/2015",
-				time: "8:00",
+				dateTime: "2014-01-27T13:00:00.312Z",
 				amount: "169.99",
 				type: "-",
 				desc: "Payment for T-Mobile"
@@ -119,7 +115,7 @@ angular.module('app_Budjee',
 			return viewLocation === $location.path();
 	    };
 	})
-	.controller('c_Home', function($scope, $localStorage){
+	.controller('c_Home', function($scope, $localStorage, $filter){
 		$scope.title = "Home Page";
 		$scope.body = "This is the home body.";
 
@@ -146,36 +142,31 @@ angular.module('app_Budjee',
 
 		$scope.formData = {
 			title: "",
-			date: "",
-			time: "",
+			dateTime: "",
 			amount: "",
 			type: "",
 			desc: ""
+		};
+		$scope.quType = "w";
+		$scope.dateOptions = {
+			showWeeks: false,
+			showButtonBar: false
+		};
+		$scope.today = function() {
+			$scope.quDatePicker = new Date();
+		};
+		$scope.today();
+		var d = new Date();
+		d.setHours( 8 );
+		d.setMinutes( 0 );
+		$scope.quTimePicker = d;
+		$scope.setNow = function($event) {
+			$scope.quTimePicker = new Date();
 		};
 		$scope.submit = function(){
 			if($scope.quTitle != "")
 			{
 				$scope.formData.title = $scope.quTitle;
-			}
-
-			if($scope.quDate == "today")
-			{
-				$scope.formData.date = "01/01/2015";
-			}else{
-				if($scope.quDateSpecifiedText != "")
-				{
-					$scope.formData.date = $scope.quDateSpecifiedText;
-				}
-			}
-
-			if($scope.quTime == "now")
-			{
-				$scope.formData.time = "11:59";
-			}else{
-				if($scope.quTimeSpecifiedText != "")
-				{
-					$scope.formData.time = $scope.quTimeSpecifiedText;
-				}
 			}
 
 			if($scope.quAmount != "")
@@ -189,6 +180,15 @@ angular.module('app_Budjee',
 			}else if($scope.quType == "w"){
 				$scope.formData.type = "-";
 			}
+
+			var tempDateTime = new Date();
+			tempDateTime.setMonth($scope.quDatePicker.getMonth());
+			tempDateTime.setDate($scope.quDatePicker.getDate());
+			tempDateTime.setFullYear($scope.quDatePicker.getFullYear());
+			tempDateTime.setHours($scope.quTimePicker.getHours());
+			tempDateTime.setMinutes($scope.quTimePicker.getMinutes());
+			tempDateTime.setSeconds(0);
+			$scope.formData.dateTime = tempDateTime;
 
 			if($scope.quDesc != "")
 			{
@@ -207,8 +207,25 @@ angular.module('app_Budjee',
 	.controller('c_Transactions', function($scope){
 		$scope.title = "Transactions Page";
 		$scope.body = "This is the transactions body.";
+		$scope.tempTransactions = $scope.transactionsService.transactions;
 
-		//$scope.transactions = ;
+		$scope.sortAscending = function(){
+			$scope.tempTransactions.sort(function(x, y){
+				date1 = new Date(x.dateTime);
+				date2 = new Date(y.dateTime);
+				return date1 - date2;
+			});
+		};
+
+		$scope.sortDescending = function(){
+			$scope.tempTransactions.sort(function(x, y){
+				date1 = new Date(x.dateTime);
+				date2 = new Date(y.dateTime);
+				return date2 - date1;
+			});
+		};
+
+		$scope.sortAscending();
 	})
 	.controller('c_Settings', function($scope){
 		$scope.title = "Settings Page";
