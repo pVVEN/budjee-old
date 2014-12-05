@@ -40,10 +40,10 @@ angular.module('app_Budjee',
 	'ui.bootstrap'])
 	.config(function($routeProvider){
 		$routeProvider
-			.when('/about', {templateUrl: 'partials/p_about.html', controller: 'c_About'})
 			.when('/calendar', {templateUrl: 'partials/p_calendar.html', controller: 'c_Calendar'})
 			.when('/transactions', {templateUrl: 'partials/p_transactions.html', controller: 'c_Transactions'})
 			.when('/settings', {templateUrl: 'partials/p_settings.html', controller: 'c_Settings'})
+			.when('/about', {templateUrl: 'partials/p_about.html', controller: 'c_About'})
 			.otherwise({redirectTo: '/home', templateUrl: 'partials/p_home.html', controller: 'c_Home'});
 	})
 
@@ -55,12 +55,29 @@ angular.module('app_Budjee',
 		return {};
 	})
 
+	.service('s_TimeTranslator', function(){
+		this.getDate = function(dateTime){
+			var dt = new Date(dateTime);
+			return dt.toLocaleDateString();
+		};
 
+		this.getTime = function(dateTime){
+			var dt = new Date(dateTime);
+			return dt.toLocaleTimeString();
+		};
+	})
 
 	/****
 	CONTROLLERS
 	*****/
-	.controller('c_Main', function($scope, $location, $localStorage, $sessionStorage, s_Transactions){
+	.controller('c_Main', function(
+			$scope, 
+			$location, 
+			$localStorage, 
+			$sessionStorage, 
+			s_Transactions,
+			s_TimeTranslator
+		){
 		$scope.greetMe = 'World';
 
 		//set defaults here
@@ -104,6 +121,7 @@ angular.module('app_Budjee',
 				desc: "Payment for T-Mobile"
 			}
 		];
+		$scope.timeTranslatorService = s_TimeTranslator;
 
 		$scope.setRoute = function(route)
 		{
@@ -116,9 +134,6 @@ angular.module('app_Budjee',
 	    };
 	})
 	.controller('c_Home', function($scope, $localStorage, $filter){
-		$scope.title = "Home Page";
-		$scope.body = "This is the home body.";
-
 		$scope.amtAvailable = "300.00";
 		$scope.amtNextAvailable = "0";
 		$scope.amtAvailableColor = "color-green";
@@ -194,20 +209,16 @@ angular.module('app_Budjee',
 			{
 				$scope.formData.desc = $scope.quDesc;
 			}
+
+			$scope.transactionsService.transactions.push($scope.formData);
 		}
 	})
-	.controller('c_About', function($scope){
-		$scope.title = "About Page";
-		$scope.body = "This is the about body.";
-	})
 	.controller('c_Calendar', function($scope){
-		$scope.title = "Calendar Page";
-		$scope.body = "This is the calendar body.";
 	})
 	.controller('c_Transactions', function($scope){
-		$scope.title = "Transactions Page";
-		$scope.body = "This is the transactions body.";
 		$scope.tempTransactions = $scope.transactionsService.transactions;
+		//$scope.getDate = $scope.timeTranslatorService.getDate();
+		//$scope.getTime = $scope.timeTranslatorService.getTime();
 
 		$scope.sortAscending = function(){
 			$scope.tempTransactions.sort(function(x, y){
@@ -228,6 +239,5 @@ angular.module('app_Budjee',
 		$scope.sortAscending();
 	})
 	.controller('c_Settings', function($scope){
-		$scope.title = "Settings Page";
-		$scope.body = "This is the settings body.";
-	});
+	})
+	.controller('c_About', function($scope){ });
