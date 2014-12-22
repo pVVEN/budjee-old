@@ -29,9 +29,9 @@
 <div class="row" ng-repeat="transaction in tempTransactions">
 	<div class="col-md-12">
 		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title">{{transaction.title}}</h3>
-				<button class="btn btn-danger pull-right"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+			<div class="panel-heading clearfix">
+				<h3 class="panel-title pull-left">{{transaction.title}}</h3>
+				<button class="btn btn-danger btn-sm pull-right" ng-click="removeTransaction(transaction.id);"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
 			</div>
 			<div class="panel-body">
 				<p>{{timeTranslatorService.getDate(transaction.dateTime)}} - {{timeTranslatorService.getTime(transaction.dateTime)}}</p>

@@ -14,3 +14,25 @@ body {
 {
 	color: #d43f3a;
 }
+
+ul {
+	&.nav &.nav-justified {
+		li {
+			float: left;
+		}
+	}
+}
+
+.panel-title {
+	padding-top: 7px;
+}
+
+@media (min-width: 768px) {
+	ul {
+		&.nav &.nav-justified {
+			li {
+				float: none;
+			}
+		}
+	}
+}

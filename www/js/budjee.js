@@ -86,6 +86,7 @@ angular.module('app_Budjee',
 	    $scope.transactionsService = s_Transactions;
 	    $scope.transactionsService.transactions = [
 			{
+				id: 0,
 				title: "Rent",
 				dateTime: "2014-01-26T13:00:00.312Z",
 				amount: "754.31",
@@ -93,6 +94,7 @@ angular.module('app_Budjee',
 				desc: "Rent for the month"
 			},
 			{
+				id: 1,
 				title: "Car insurance",
 				dateTime: "2014-01-26T15:00:00.312Z",
 				amount: "120.21",
@@ -100,6 +102,7 @@ angular.module('app_Budjee',
 				desc: "Monthly car insurance payment"
 			},
 			{
+				id: 2,
 				title: "Car payment",
 				dateTime: "2014-01-26T08:03:00.312Z",
 				amount: "169.51",
@@ -107,6 +110,7 @@ angular.module('app_Budjee',
 				desc: "First half of payment"
 			},
 			{
+				id: 3,
 				title: "Paycheck",
 				dateTime: "2014-01-26T08:13:00.312Z",
 				amount: "1234.56",
@@ -114,6 +118,7 @@ angular.module('app_Budjee',
 				desc: "Pay day!!"
 			},
 			{
+				id: 4,
 				title: "Phone bill",
 				dateTime: "2014-01-27T13:00:00.312Z",
 				amount: "169.99",
@@ -156,6 +161,7 @@ angular.module('app_Budjee',
 		}
 
 		$scope.formData = {
+			id: 0,
 			title: "",
 			dateTime: "",
 			amount: "",
@@ -210,6 +216,7 @@ angular.module('app_Budjee',
 				$scope.formData.desc = $scope.quDesc;
 			}
 
+			$scope.formData.id = $scope.transactionsService.transactions.length;
 			$scope.transactionsService.transactions.push($scope.formData);
 		}
 	})
@@ -235,6 +242,13 @@ angular.module('app_Budjee',
 				return date2 - date1;
 			});
 		};
+
+		$scope.removeTransaction = function(index){
+			var wantedIndex = $.grep($scope.tempTransactions, function(i){
+				return i.id === index;
+			});
+			$scope.tempTransactions.splice(+(wantedIndex.id), 1);
+		}
 
 		$scope.sortAscending();
 	})
